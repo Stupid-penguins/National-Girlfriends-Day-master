@@ -20,7 +20,19 @@ const HeartBackground = new THREE.TextureLoader().load('heart.png');
 scene.background = HeartBackground;
 
 
+const loader = new GLTFLoader();
+loader.load('HeartJar/scene.gltf', (glftScene) => {
+    glftScene.scene.scale.set(0.1,0.1,0.1);
+    glftScene.scene.position.set(0,12,0)
+    scene.add(glftScene.scene);
+});
 
+loader.load('CatDispencer/scene.gltf', (ben) => {
+    ben.scene.scale.set(0.1,0.1,0.1)
+    ben.scene.position.set(50,-20 , -10)
+    ben.scene.rotation.set(0,3.7,-0.7)
+    scene.add(ben.scene);
+});
 
 
 const light = new THREE.AmbientLight( 0xff0000 );
